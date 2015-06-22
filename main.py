@@ -13,6 +13,7 @@ class Main_Window(QtGui.QMainWindow):
         self.window()
         self.menu()
         self.toolbar()
+        self.statusBar()
         self.setCentralWidget(self.view)
         self.tool = 0
         self.show()
@@ -147,6 +148,9 @@ class Main_Window(QtGui.QMainWindow):
         cursor = QtGui.QPixmap(cursor_file)
         self.view.setCursor(QtGui.QCursor(cursor))
 
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + " . Klinkij LPM i przytrzymaj aby narysować linie")
+
     def elipse_change(self):
         self.tool = 2
 
@@ -159,6 +163,9 @@ class Main_Window(QtGui.QMainWindow):
         cursor_file = "img/cursor/elipse_cursor.png"
         cursor = QtGui.QPixmap(cursor_file)
         self.view.setCursor(QtGui.QCursor(cursor))
+
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + " . Klinkij LPM i przytrzymaj aby narysować elipse ")
 
     def triangle_change(self):
         self.tool = 3
@@ -173,6 +180,10 @@ class Main_Window(QtGui.QMainWindow):
         cursor = QtGui.QPixmap(cursor_file)
         self.view.setCursor(QtGui.QCursor(cursor))
 
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + " . Klinkij LPM i przytrzymaj aby narysować trójkąt")
+
+
     def rectangle_change(self):
         self.tool = 4
 
@@ -186,6 +197,9 @@ class Main_Window(QtGui.QMainWindow):
         cursor = QtGui.QPixmap(cursor_file)
         self.view.setCursor(QtGui.QCursor(cursor))
 
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + " . Klinkij LPM i przytrzymaj aby narysować prostokąt")
+
     def polygon_change(self):
         self.tool = 5
 
@@ -198,6 +212,9 @@ class Main_Window(QtGui.QMainWindow):
         cursor_file = "img/cursor/polygon_cursor.png"
         cursor = QtGui.QPixmap(cursor_file)
         self.view.setCursor(QtGui.QCursor(cursor))
+
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + " . Kliknij LPM i i trzymając przesuń w dół aby narysować sześciokąt")
 
     def text_change(self):
         self.tool = 6
@@ -213,6 +230,9 @@ class Main_Window(QtGui.QMainWindow):
         cursor = QtGui.QPixmap(cursor_file)
         self.view.setCursor(QtGui.QCursor(cursor))
 
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + " . Kliknij PPM w dowolnym miejscu wprowadzenia tekstu")
+
     def insert_pixmap(self, start):
 
         self.tool = 7
@@ -223,10 +243,14 @@ class Main_Window(QtGui.QMainWindow):
         cursor = QtGui.QPixmap(cursor_file)
         self.view.setCursor(QtGui.QCursor(cursor))
 
+
     def zoom_in_change(self):
 
         self.view.scale(4/3, 4/3)
         self.view.setSceneRect(QtCore.QRectF(0,0, self.view.width(), self.view.height()))
+
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + "")
 
     def zoom_out_change(self):
 
@@ -238,6 +262,9 @@ class Main_Window(QtGui.QMainWindow):
         self.view.scale(3/4, 3/4)
         # self.view.setMaximumSize(new_view_width, old_view_hei)
         self.view.setSceneRect(QtCore.QRectF(0,0, self.view.width(), self.view.height()))
+
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + "")
 
 
     def reset_transform(self):
