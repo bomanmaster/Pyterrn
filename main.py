@@ -242,7 +242,8 @@ class Main_Window(QtGui.QMainWindow):
         cursor_file = "img/cursor/pixmap_cursor.png"
         cursor = QtGui.QPixmap(cursor_file)
         self.view.setCursor(QtGui.QCursor(cursor))
-
+        sender = self.sender()
+        self.statusBar().showMessage(sender.text() + " . Kliknij PPM w dowolnym miejscu wprowadzenia grafiki")
 
     def zoom_in_change(self):
 
