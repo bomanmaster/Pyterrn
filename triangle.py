@@ -20,7 +20,7 @@ class Toolbar(QtGui.QToolBar):
         self.toolbar_triangle()
         self.toggleViewAction().setText("Elipsa")
         self.setVisible(False)
-        ikona = QtGui.QIcon("img/tools/elipse.png")
+        ikona = QtGui.QIcon("img/tools/triangle.png")
         self.toggleViewAction().setIcon(ikona)
         self.view.tool = 1
 
